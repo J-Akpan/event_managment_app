@@ -11,8 +11,9 @@ const {artistUpdateValidation} = require('../validation/artistValidation')
 const allArtist = async (req,res) => {
     try {
         const allArtists = await User.findAll(
-            {where: {userType: "Artist"},
-        })
+            {
+                where: {userType: "Artist"},}
+            )
         if(allArtists){
             return res.status(200).json(allArtists)
         }
@@ -25,29 +26,30 @@ const allArtist = async (req,res) => {
 const artistInfo = async (req,res) => {
     try {
         const infor = req.user.userId
-        console.log(infor)
+        // console.log(infor)
         
         const artistInfos = await Artist.findOne({
+            include: User,
+            where:{userId: infor},
           
         })
-      
-        if(artistInfos){
-            return res.status(200).json({
-                // artistInfos
-               
-                name: artistInfos.User.firstName + " " + artistInfos.User.lastName,
-                stageName: artistInfos.User.username,
-                email: artistInfos.User.email,
-                genre: artistInfos.genre
-            })
+
+
+        if (artistInfos.User.userType !== "Artist") return res.status(403).json({
+            msg: "You are not an artist"
+        })
+
+        if (artistInfo){
+            return res.status(200).json(artistInfos)
         }
-        return res.status(404).json({msg: "Artist not found in the database"})
+    
+      
     } catch (error) {
         throw error
     }  
 }
 
-// ------------------update artist details -------------------
+// ------------------creat artist details -------------------
 
 const artistDetailsUpdate = async (req, res) =>{
     try {

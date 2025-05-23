@@ -10,10 +10,10 @@ const {authenticateToken} = require('../middleware/userMiddleware')
 const artistRouter = express.Router()
 
 
-artistRouter.get('/all-artist', allArtist)
-artistRouter.post('/update', authenticateToken, artistDetailsUpdate)
-artistRouter.get('/artist-info', authenticateToken, artistInfo)
-artistRouter.delete('/delete-artist', authenticateToken, deleteArtist)
+artistRouter.get('/all', allArtist)
+artistRouter.post('/create', authenticateToken, artistDetailsUpdate)
+artistRouter.get('/info', authenticateToken, artistInfo)
+artistRouter.delete('/delete', authenticateToken, deleteArtist)
 
 
 module.exports = artistRouter
