@@ -10,9 +10,8 @@ const {artistUpdateValidation} = require('../validation/artistValidation')
 
 const allArtist = async (req,res) => {
     try {
-        const allArtists = await User.findAll({
-            where: {userType: "Artist"},
-            include: Artist
+        const allArtists = await User.findAll(
+            {where: {userType: "Artist"},
         })
         if(allArtists){
             return res.status(200).json(allArtists)
@@ -29,11 +28,7 @@ const artistInfo = async (req,res) => {
         console.log(infor)
         
         const artistInfos = await Artist.findOne({
-            where: {userId: infor},
-            include: {
-                model: User,
-                // required: true, 
-            }
+          
         })
       
         if(artistInfos){
