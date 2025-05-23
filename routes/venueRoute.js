@@ -5,7 +5,7 @@ const venueRouter = express.Router()
 
 
 venueRouter.get('/all', allVenues)
-venueRouter.post('/info',authenticateToken, venueInfo)
+venueRouter.get('/info',authenticateToken, venueInfo)
 venueRouter.post('/create',authenticateToken, createVenue)
 
 
