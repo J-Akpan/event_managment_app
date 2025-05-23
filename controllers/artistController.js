@@ -26,7 +26,8 @@ const allArtist = async (req,res) => {
 const artistInfo = async (req,res) => {
     try {
         const infor = req.user.userId
-        // console.log(infor)
+        console.log(infor)
+        
         const artistInfos = await Artist.findOne({
             where: {userId: infor},
             include: {

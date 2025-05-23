@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 // load the routes
-app.use('/event-app', userRoute)
+app.use('/users', userRoute)
 app.use('/artist', artistRouter)
 app.use('/events', eventRouter)
 app.use('/venues', venueRouter)
