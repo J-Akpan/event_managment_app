@@ -11,7 +11,6 @@ allVenues =async (req, res) => {
     try {
         const venueOwners = await User.findAll({
             where: {userType: "Venue Owner"},
-            include: Venue
         })
         res.status(200).json(venueOwners)
      
@@ -19,6 +18,20 @@ allVenues =async (req, res) => {
         throw error
     }
 
+}
+
+venueInfo = async (req, res) =>{
+    try {
+        const venueOwner = req.user.userId
+        console.log(venueOwner)
+
+        const venueInfos = await Venue.findOne({
+            include: User,
+        })
+        
+    } catch (error) {
+        throw error
+    }
 }
 
 createVenue = async (req, res) => {
@@ -57,5 +70,6 @@ createVenue = async (req, res) => {
 
 module.exports = {
     allVenues,
-    createVenue
+    createVenue,
+    venueInfo
 }
