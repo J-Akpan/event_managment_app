@@ -7,6 +7,11 @@ const venueCreateValidation = Joi.object({
     availability: Joi.string().required(),
 })
 
+
+const venueSearchValidation = Joi.object({
+    searchTerm: Joi.string().required(),
+})
 module.exports ={
-    venueCreateValidation
+    venueCreateValidation,
+    venueSearchValidation
 }

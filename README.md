@@ -335,3 +335,36 @@ and venues after events.
 
 ### 14. *Calendar Integration*
 - *Event Calendar*: Visual calendar displaying all upcoming events, allowing users to add events to their personal calendars.
+
+
+<!-- --------------------------------------------------------------------------------------------------- -->
+
+Search functiolnality:
+Filter by: location, 
+capacity, 
+type(indoor or outdoor)
+
+Venue Details:
+Venu image and description
+Available calender
+List of padt fand upcoming event
+edit/deleat
+
+<!-- ---------------------------------------- -->
+Search Event functiolnality:
+Filter by: artist and venue, 
+date
+
+Event Details:
+Event name, data and time
+Venue information
+Artifst lineup
+Ticket information
+edit/del
+
+<!-- ----------------------------------------------------- -->
+Dashboard
+Properties:
+- Overview of artist, venue and events
+- quick access buttons for adding new entries
+- upcoming ecents calenders
