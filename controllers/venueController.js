@@ -101,7 +101,7 @@ searchVenue = async (req, res) => {
         [Op.or]: [{ 
             location: 
               {[Op.iLike]: `%${searchTerm}%` }}, 
-              { capacity:   {[Op.iLike]:searchTerm }}],
+              { capacity:   {[Op.iLike]:`%${searchTerm}%` }}],
       },
     });
 

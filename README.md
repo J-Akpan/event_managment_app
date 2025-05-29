@@ -339,7 +339,7 @@ and venues after events.
 
 <!-- --------------------------------------------------------------------------------------------------- -->
 
-Search functiolnality:
+Search functionality:
 Filter by: location, 
 capacity, 
 type(indoor or outdoor)
