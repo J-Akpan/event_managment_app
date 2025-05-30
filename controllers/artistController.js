@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 const Artist = require('../models/Artist')
 const { Op } = require('sequelize')
-const {artistUpdateValidation} = require('../validation/artistValidation')
+const {artistUpdateValidation, artistSearchValidation} = require('../validation/artistValidation')
 
 //check for the registered user is an artist using the user token ==> if yes
 //update the artist details
@@ -97,9 +97,45 @@ deleteArtist = async (req, res) =>{
     return res.status(404).json({msg: "Artist not found in database"})
 }
 
+// --------------------search Venue -------------------------
+searchArtist = async (req, res) => {
+  try {
+    const { searchTerm } = req.body;
+
+    // validation of the request body
+    const { error } = artistSearchValidation.validate(req.body);
+    if (error) {
+      return res.json(error.details[0].message);
+    }
+    // console.log(searchTerm)
+
+    const search = await Artist.findAll({
+        include: User,
+      where: {
+        [Op.or]: [
+          {
+            genre: { [Op.iLike]: `%${searchTerm}%` },
+          },
+        //   { capacity: { [Op.iLike]: `%${searchTerm}%` } },
+        ],
+      },
+    });
+
+    if (search) {
+      return res.status(200).json(search);
+    }
+  } catch (error) {
+    throw error
+  }
+};
+
+
+
+
 module.exports ={
     allArtist,
     artistDetailsUpdate,
     artistInfo,
     deleteArtist,
+    searchArtist
 }

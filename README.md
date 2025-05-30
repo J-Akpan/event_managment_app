@@ -347,7 +347,7 @@ type(indoor or outdoor)
 Venue Details:
 Venu image and description
 Available calender
-List of padt fand upcoming event
+List of past and upcoming event
 edit/deleat
 
 <!-- ---------------------------------------- -->
@@ -368,3 +368,17 @@ Properties:
 - Overview of artist, venue and events
 - quick access buttons for adding new entries
 - upcoming ecents calenders
+
+<!-- ?----------------------------------------------------- -->
+Artist list views: 
+Search functionality that filter by:
+Genre
+Location
+Availability
+
+
+Artist Details:
+Profile picture / bio
+Upcoming event list
+Contact information
+delete/edit
