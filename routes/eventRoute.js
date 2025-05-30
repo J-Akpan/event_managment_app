@@ -5,7 +5,7 @@ const eventRouter = express.Router()
 
 
 eventRouter.get('/all-events', allEvents)
-eventRouter.post('/create-events',authenticateToken, createEvents)
+eventRouter.post('/create-events', authenticateToken, createEvents)
 
 
 

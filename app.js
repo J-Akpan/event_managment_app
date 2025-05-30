@@ -8,12 +8,14 @@ const Event = require('./models/Events')
 const Ticket = require('./models/Tickets')
 const Registration = require('./models/Registration')
 const Payment = require('./models/Payment')
+const Booking = require('./models/Bookings')
 
 // import routes
 const  userRoute = require('./routes/userRoutes')
 const artistRouter = require('./routes/artistRoute')
 const eventRouter = require('./routes/eventRoute')
 const venueRouter = require('./routes/venueRoute')
+const bookingRouter = require('./routes/bookingRoutes')
 
 
 const port = process.env.PORT||5000
@@ -27,6 +29,7 @@ app.use('/users', userRoute)
 app.use('/artist', artistRouter)
 app.use('/events', eventRouter)
 app.use('/venues', venueRouter)
+app.use('/booking', bookingRouter)
 
 
 
